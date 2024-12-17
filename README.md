@@ -1,1 +1,1 @@
-# BlindStick
+# The Smart Assistive Stick

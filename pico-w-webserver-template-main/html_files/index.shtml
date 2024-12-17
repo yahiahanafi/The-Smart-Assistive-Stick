@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map For User</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>User Location</h1>
+    </header>
+    <div id="time-container">
+      <span>Time: 12:34 PM</span>
+    </div>
+    <gmp-map
+      center="30.06456,31.33113"
+      zoom="15"
+      map-id="DEMO_MAP_ID"
+      style="height: 600px"
+    >
+      <gmp-advanced-marker
+        position="43.4142989,-124.2301242"
+        title="User's Location"
+      ></gmp-advanced-marker>
+    </gmp-map>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCRnucTA5OUTpb-NYZkImovLsYLoWsjBs&libraries=maps,marker&v=beta"
+      defer
+    ></script>
+    <div class="button-container">
+      <button id="refresh-button" onclick="location.reload()">Refresh</button>
+    </div>
+    <p>GPS Data: <!--#gps--></p>
+  </body>
+</html>

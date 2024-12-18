@@ -7,3 +7,6 @@ Visually impaired individuals face significant challenges in navigation with tra
 	3.	GPS Module – Tracks real-time location.
  
 Smart Assistive Stick detects obstacles and hazards, providing timely feedback. It works effectively in various environments and uses GPS for real-time location tracking, which is accessible via a web-based platform, enhancing mobility and safety for visually impaired individuals.
+
+Contains Headr for each Sensor 
+and HTMl for Website

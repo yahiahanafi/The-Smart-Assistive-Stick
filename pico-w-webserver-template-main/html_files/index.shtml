@@ -9,9 +9,7 @@
     <header>
       <h1>User Location</h1>
     </header>
-    <div id="time-container">
-      <span>Time: 12:34 PM</span>
-    </div>
+    <p> <!--#gps--></p>
     <gmp-map
       center="30.06456,31.33113"
       zoom="15"
@@ -30,6 +28,6 @@
     <div class="button-container">
       <button id="refresh-button" onclick="location.reload()">Refresh</button>
     </div>
-    <p>GPS Data: <!--#gps--></p>
+    <p>Long Data: <!--#long--></p>
   </body>
 </html>

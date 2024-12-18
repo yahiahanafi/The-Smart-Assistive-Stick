@@ -5,7 +5,35 @@
 
 
   // SSI tags - tag length limited to 8 bytes by default
-  const char * ssi_tags[] = {"volt", "temp", "led", "gps"};
+  const char * ssi_tags[] = {"volt", "temp", "led", "gps", "long"};
+
+double extract_longitude(const char* gps_data) {
+    if (!gps_data) return 0.0;
+
+    // Find the substring "Longitude: "
+    const char* long_start = strstr(gps_data, "Longitude: ");
+    if (long_start) {
+        // Move pointer past "Longitude: "
+        long_start += strlen("Longitude: ");
+
+        // Extract longitude until the next space or end of string
+        char longitude_str[32] = {0};
+        size_t i = 0;
+
+        while (*long_start && *long_start != ' ' && i < sizeof(longitude_str) - 1) {
+            longitude_str[i++] = *long_start++;
+        }
+
+        longitude_str[i] = '\0'; // Null-terminate the string
+
+        // Convert to a double
+        return atof(longitude_str);
+    }
+
+    return 0.0; // Return 0 if "Longitude: " is not found
+}
+
+
 
 u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen) {
     size_t printed;
@@ -37,7 +65,24 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen) {
                 const char *gps_data = get_gps_data(); // Use a helper function
                 snprintf(gps_buffer, sizeof(gps_buffer), "%s", gps_data);
 
-                printed = snprintf(pcInsert, iInsertLen, "%s", gps_buffer);
+                printed = snprintf( pcInsert, iInsertLen, "%s", gps_buffer);
+            }
+            break;
+        case 4: // long
+            {
+                // Retrieve and format GPS data
+                static char gps_buffer[256];
+                const char *gps_data = get_gps_data(); // Use a helper function
+
+                // Extract longitude
+                double longitude = extract_longitude(gps_buffer);
+
+                // Convert longitude to string and format it
+                char longitude_str[32];
+                snprintf(longitude_str, sizeof(longitude_str), "%f", longitude);
+
+                // Store it in pcInsert
+                printed = snprintf(pcInsert, iInsertLen, "%s", longitude_str);
             }
             break;
         default:
@@ -47,6 +92,8 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen) {
 
     return (u16_t)printed;
 }
+
+
 
 
   // Initialise the SSI handler

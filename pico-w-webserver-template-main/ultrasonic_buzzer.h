@@ -4,9 +4,9 @@
 #include "pico/stdlib.h"
 
 // Pin definitions
-#define TRIG_PIN 15
-#define ECHO_PIN 14
-#define BUZZER_PIN 19
+#define TRIG_PIN 0
+#define ECHO_PIN 1
+#define BUZZER_PIN 16
 
 
 // Distance threshold in cm

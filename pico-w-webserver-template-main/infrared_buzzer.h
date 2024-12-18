@@ -4,7 +4,7 @@
 #include "pico/stdlib.h"
 
 // Pin definitions
-#define IR_SENSOR_PIN 16
+#define IR_SENSOR_PIN 28
 #define VIBRATE_PIN 3
 
 // Function declarations

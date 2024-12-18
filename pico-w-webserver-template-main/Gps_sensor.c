@@ -7,8 +7,8 @@
 #define BAUD_RATE 9600           // Neo-6M default baud rate
 
 // Define the pins for UART communication
-#define UART_TX_PIN 0            // GP0 as TX (Pico to Neo-6M RX)
-#define UART_RX_PIN 1            // GP1 as RX (Neo-6M TX to Pico)
+#define UART_TX_PIN 12            // GP0 as TX (Pico to Neo-6M RX)
+#define UART_RX_PIN 13            // GP1 as RX (Neo-6M TX to Pico)
 
 void setup_uart() {
     // Initialize UART

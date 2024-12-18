@@ -8,5 +8,5 @@ Visually impaired individuals face significant challenges in navigation with tra
  
 Smart Assistive Stick detects obstacles and hazards, providing timely feedback. It works effectively in various environments and uses GPS for real-time location tracking, which is accessible via a web-based platform, enhancing mobility and safety for visually impaired individuals.
 
-Contains Headr for each Sensor 
+Contains Header for each Sensor 
 and HTMl for Website
